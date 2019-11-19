@@ -3,6 +3,16 @@ export const initialState = [
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
+  },
+  {
+    item: 'Learn Redux',
+    completed: false,
+    id: 3892987590
+  },
+  {
+    item: 'Learn Context API',
+    completed: false,
+    id: 3892987591
   }
 ];
 
@@ -21,7 +31,10 @@ export const todoReducer = (state, action) => {
           return todo;
         }
       })
-      
+    case 'CLEAR_COMPLETED':
+      return state.filter(todo => {
+        return !todo.completed
+      })
     default:
       return state;
   }
