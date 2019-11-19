@@ -15,13 +15,19 @@ const TodoList = () => {
   const handleSubmit = e => {
     e.preventDefault();
     setTodoName('');
-  }
+  };
 
   return (
     <div>
       <h2>List</h2>
       {state.map(todo => (
-        <Todo key={todo.id} item={todo.item} />
+        <Todo
+          key={todo.id}
+          item={todo.item}
+          dispatch={dispatch}
+          id={todo.id}
+          completed={todo.completed}
+        />
       ))}
       <TodoForm
         handleChange={handleChange}
@@ -29,19 +35,6 @@ const TodoList = () => {
         dispatch={dispatch}
         todoName={todoName}
       />
-      {/* <button onClick={() => dispatch({ type: 'ADD', item: todoName })}>
-        Add
-      </button> */}
-
-      {/* 
-      <form>
-        <input
-          type="text"
-          onChange={handleChange}
-          placeholder={'Enter new todo here'}
-        />
-        <button onClick={dispatch({item: todoName })}>Add</button>
-      </form> */}
     </div>
   );
 };
