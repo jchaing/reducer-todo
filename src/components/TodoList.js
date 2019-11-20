@@ -15,7 +15,10 @@ const TodoList = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setTodoName('');
+    if (todoName !== '') {
+      dispatch({ type: 'ADD', item: todoName }); 
+      setTodoName('');
+    }
   };
 
   return (

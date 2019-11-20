@@ -12,7 +12,7 @@ const TodoForm = ({ handleChange, dispatch, todoName, handleSubmit }) => {
             placeholder={'Enter new todo here'}
             value={todoName}
           />
-          <Button color="success" onClick={() => dispatch({ type: 'ADD', item: todoName })}>
+          <Button color="success">
             Add
           </Button>
         </InputGroup>
